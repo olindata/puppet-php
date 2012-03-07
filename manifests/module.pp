@@ -25,11 +25,11 @@ define php::module($ensure = present, $source = undef, $content = undef, $requir
         source  => $source ? {
             undef   => undef,
             true    => [
-                "puppet:///files/${fqdn}/etc/php5/conf.d/${file_name}",
+                "puppet:///files/${::fqdn}/etc/php5/conf.d/${file_name}",
                 "puppet:///files/${hostgroup}/etc/php5/conf.d/${file_name}",
-                "puppet:///files/${domain}/etc/php5/conf.d/${file_name}",
+                "puppet:///files/${::domain}/etc/php5/conf.d/${file_name}",
                 "puppet:///files/global/etc/php5/conf.d/${file_name}",
-            ], 
+            ],
             default => "${source}${file_name}",
         },
         content => $content ? {

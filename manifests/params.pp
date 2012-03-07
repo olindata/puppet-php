@@ -1,5 +1,5 @@
 class php::params {
-    case $operatingsystem {
+    case $::operatingsystem {
         /(Ubuntu|Debian)/: {
             $base_dir = "/etc/php5/"
             $cli_dir = "${base_dir}cli/"
