@@ -11,7 +11,7 @@ class php::mysql {
 
   file {'/etc/php5/conf.d/mysql.ini':
     ensure  => present,
-    source  => 'puppet:///php/mysqli.ini'
+    source  => 'puppet:///php/mysql.ini'
   }
 
   file {'/etc/php5/conf.d/pdo_mysql.ini':
