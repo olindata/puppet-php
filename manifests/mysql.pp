@@ -19,4 +19,9 @@ class php::mysql {
     source  => 'puppet:///php/pdo_mysql.ini'
   }
 
+  file {'/etc/php5/conf.d/pdo.ini':
+    ensure  => present,
+    source  => 'puppet:///php/pdo.ini'
+  }
+
 }
