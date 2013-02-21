@@ -6,7 +6,7 @@ class php::mcrypt {
   
   file { '/etc/php5/conf.d/mcrypt.ini':
     ensure  => present,
-    source  => "puppet:///php/mcrypt.ini",
+    source  => "puppet:///modules/php/mcrypt.ini",
   }
   
 }
