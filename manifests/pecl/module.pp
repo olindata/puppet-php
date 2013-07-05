@@ -5,7 +5,9 @@ define php::pecl::module (
   $path = '/usr/bin:/usr/sbin:/bin:/sbin',
   $verbose = false,
   $version = '',
-  $config_file = "/etc/php5/conf.d/${name}.ini") {
+  $config_file = "/etc/php5/conf.d/${name}.ini",
+  $manage_config = false,
+  ) {
 
   include php::pear
   include php::dev
@@ -39,10 +41,12 @@ define php::pecl::module (
     require   => [ Class['php::pear'], Class['php::dev']],
   }
 
-  file { $config_file:
-    ensure  => $ensure,
-    content => "extension=${name}.so",
-    require => Exec["pecl-${name}"],
+  if $manage_config {
+    file { $config_file:
+      ensure  => $ensure,
+      content => "extension=${name}.so",
+      require => Exec["pecl-${name}"],
+    }
   }
 
 }
